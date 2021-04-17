@@ -8615,6 +8615,12 @@ static const struct bpf_sec_def section_defs[] = {
 	BPF_PROG_SEC("struct_ops",		BPF_PROG_TYPE_STRUCT_OPS),
 	BPF_EAPROG_SEC("sk_lookup/",		BPF_PROG_TYPE_SK_LOOKUP,
 						BPF_SK_LOOKUP),
+	SEC_DEF("sigfilter", SIGFILTER,
+		.expected_attach_type = 0,
+		.is_exp_attach_type_optional = 0,
+		.is_attachable = 0,
+		.is_attach_btf = 0,
+		.is_sleepable = 1),
 };
 
 #undef BPF_PROG_SEC_IMPL
